@@ -1,74 +1,73 @@
 package com.macro.mall.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class SmsHomeBrand implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long brandId;
+  private Long id;
 
-    private String brandName;
+  private Long brandId;
 
-    private Integer recommendStatus;
+  private String brandName;
 
-    private Integer sort;
+  private Integer recommendStatus;
 
-    private static final long serialVersionUID = 1L;
+  private Integer sort;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getBrandId() {
-        return brandId;
-    }
+  public Long getBrandId() {
+    return brandId;
+  }
 
-    public void setBrandId(Long brandId) {
-        this.brandId = brandId;
-    }
+  public void setBrandId(Long brandId) {
+    this.brandId = brandId;
+  }
 
-    public String getBrandName() {
-        return brandName;
-    }
+  public String getBrandName() {
+    return brandName;
+  }
 
-    public void setBrandName(String brandName) {
-        this.brandName = brandName;
-    }
+  public void setBrandName(String brandName) {
+    this.brandName = brandName;
+  }
 
-    public Integer getRecommendStatus() {
-        return recommendStatus;
-    }
+  public Integer getRecommendStatus() {
+    return recommendStatus;
+  }
 
-    public void setRecommendStatus(Integer recommendStatus) {
-        this.recommendStatus = recommendStatus;
-    }
+  public void setRecommendStatus(Integer recommendStatus) {
+    this.recommendStatus = recommendStatus;
+  }
 
-    public Integer getSort() {
-        return sort;
-    }
+  public Integer getSort() {
+    return sort;
+  }
 
-    public void setSort(Integer sort) {
-        this.sort = sort;
-    }
+  public void setSort(Integer sort) {
+    this.sort = sort;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", brandId=").append(brandId);
-        sb.append(", brandName=").append(brandName);
-        sb.append(", recommendStatus=").append(recommendStatus);
-        sb.append(", sort=").append(sort);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", brandId=").append(brandId);
+    sb.append(", brandName=").append(brandName);
+    sb.append(", recommendStatus=").append(recommendStatus);
+    sb.append(", sort=").append(sort);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }

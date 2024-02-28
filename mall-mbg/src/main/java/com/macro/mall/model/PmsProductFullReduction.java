@@ -1,64 +1,63 @@
 package com.macro.mall.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class PmsProductFullReduction implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long productId;
+  private Long id;
 
-    private BigDecimal fullPrice;
+  private Long productId;
 
-    private BigDecimal reducePrice;
+  private BigDecimal fullPrice;
 
-    private static final long serialVersionUID = 1L;
+  private BigDecimal reducePrice;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getProductId() {
-        return productId;
-    }
+  public Long getProductId() {
+    return productId;
+  }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+  public void setProductId(Long productId) {
+    this.productId = productId;
+  }
 
-    public BigDecimal getFullPrice() {
-        return fullPrice;
-    }
+  public BigDecimal getFullPrice() {
+    return fullPrice;
+  }
 
-    public void setFullPrice(BigDecimal fullPrice) {
-        this.fullPrice = fullPrice;
-    }
+  public void setFullPrice(BigDecimal fullPrice) {
+    this.fullPrice = fullPrice;
+  }
 
-    public BigDecimal getReducePrice() {
-        return reducePrice;
-    }
+  public BigDecimal getReducePrice() {
+    return reducePrice;
+  }
 
-    public void setReducePrice(BigDecimal reducePrice) {
-        this.reducePrice = reducePrice;
-    }
+  public void setReducePrice(BigDecimal reducePrice) {
+    this.reducePrice = reducePrice;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productId=").append(productId);
-        sb.append(", fullPrice=").append(fullPrice);
-        sb.append(", reducePrice=").append(reducePrice);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", productId=").append(productId);
+    sb.append(", fullPrice=").append(fullPrice);
+    sb.append(", reducePrice=").append(reducePrice);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }

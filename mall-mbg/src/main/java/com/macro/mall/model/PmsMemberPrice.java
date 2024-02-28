@@ -5,72 +5,72 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 
 public class PmsMemberPrice implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long productId;
+  private Long id;
 
-    private Long memberLevelId;
+  private Long productId;
 
-    @ApiModelProperty(value = "会员价格")
-    private BigDecimal memberPrice;
+  private Long memberLevelId;
 
-    private String memberLevelName;
+  @ApiModelProperty(value = "会员价格")
+  private BigDecimal memberPrice;
 
-    private static final long serialVersionUID = 1L;
+  private String memberLevelName;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getProductId() {
-        return productId;
-    }
+  public Long getProductId() {
+    return productId;
+  }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+  public void setProductId(Long productId) {
+    this.productId = productId;
+  }
 
-    public Long getMemberLevelId() {
-        return memberLevelId;
-    }
+  public Long getMemberLevelId() {
+    return memberLevelId;
+  }
 
-    public void setMemberLevelId(Long memberLevelId) {
-        this.memberLevelId = memberLevelId;
-    }
+  public void setMemberLevelId(Long memberLevelId) {
+    this.memberLevelId = memberLevelId;
+  }
 
-    public BigDecimal getMemberPrice() {
-        return memberPrice;
-    }
+  public BigDecimal getMemberPrice() {
+    return memberPrice;
+  }
 
-    public void setMemberPrice(BigDecimal memberPrice) {
-        this.memberPrice = memberPrice;
-    }
+  public void setMemberPrice(BigDecimal memberPrice) {
+    this.memberPrice = memberPrice;
+  }
 
-    public String getMemberLevelName() {
-        return memberLevelName;
-    }
+  public String getMemberLevelName() {
+    return memberLevelName;
+  }
 
-    public void setMemberLevelName(String memberLevelName) {
-        this.memberLevelName = memberLevelName;
-    }
+  public void setMemberLevelName(String memberLevelName) {
+    this.memberLevelName = memberLevelName;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productId=").append(productId);
-        sb.append(", memberLevelId=").append(memberLevelId);
-        sb.append(", memberPrice=").append(memberPrice);
-        sb.append(", memberLevelName=").append(memberLevelName);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", productId=").append(productId);
+    sb.append(", memberLevelId=").append(memberLevelId);
+    sb.append(", memberPrice=").append(memberPrice);
+    sb.append(", memberLevelName=").append(memberLevelName);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }

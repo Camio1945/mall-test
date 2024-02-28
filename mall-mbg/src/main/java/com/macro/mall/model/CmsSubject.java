@@ -5,198 +5,198 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class CmsSubject implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long categoryId;
+  private Long id;
 
-    private String title;
+  private Long categoryId;
 
-    @ApiModelProperty(value = "专题主图")
-    private String pic;
+  private String title;
 
-    @ApiModelProperty(value = "关联产品数量")
-    private Integer productCount;
+  @ApiModelProperty(value = "专题主图")
+  private String pic;
 
-    private Integer recommendStatus;
+  @ApiModelProperty(value = "关联产品数量")
+  private Integer productCount;
 
-    private Date createTime;
+  private Integer recommendStatus;
 
-    private Integer collectCount;
+  private Date createTime;
 
-    private Integer readCount;
+  private Integer collectCount;
 
-    private Integer commentCount;
+  private Integer readCount;
 
-    @ApiModelProperty(value = "画册图片用逗号分割")
-    private String albumPics;
+  private Integer commentCount;
 
-    private String description;
+  @ApiModelProperty(value = "画册图片用逗号分割")
+  private String albumPics;
 
-    @ApiModelProperty(value = "显示状态：0->不显示；1->显示")
-    private Integer showStatus;
+  private String description;
 
-    @ApiModelProperty(value = "转发数")
-    private Integer forwardCount;
+  @ApiModelProperty(value = "显示状态：0->不显示；1->显示")
+  private Integer showStatus;
 
-    @ApiModelProperty(value = "专题分类名称")
-    private String categoryName;
+  @ApiModelProperty(value = "转发数")
+  private Integer forwardCount;
 
-    private String content;
+  @ApiModelProperty(value = "专题分类名称")
+  private String categoryName;
 
-    private static final long serialVersionUID = 1L;
+  private String content;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getCategoryId() {
-        return categoryId;
-    }
+  public Long getCategoryId() {
+    return categoryId;
+  }
 
-    public void setCategoryId(Long categoryId) {
-        this.categoryId = categoryId;
-    }
+  public void setCategoryId(Long categoryId) {
+    this.categoryId = categoryId;
+  }
 
-    public String getTitle() {
-        return title;
-    }
+  public String getTitle() {
+    return title;
+  }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+  public void setTitle(String title) {
+    this.title = title;
+  }
 
-    public String getPic() {
-        return pic;
-    }
+  public String getPic() {
+    return pic;
+  }
 
-    public void setPic(String pic) {
-        this.pic = pic;
-    }
+  public void setPic(String pic) {
+    this.pic = pic;
+  }
 
-    public Integer getProductCount() {
-        return productCount;
-    }
+  public Integer getProductCount() {
+    return productCount;
+  }
 
-    public void setProductCount(Integer productCount) {
-        this.productCount = productCount;
-    }
+  public void setProductCount(Integer productCount) {
+    this.productCount = productCount;
+  }
 
-    public Integer getRecommendStatus() {
-        return recommendStatus;
-    }
+  public Integer getRecommendStatus() {
+    return recommendStatus;
+  }
 
-    public void setRecommendStatus(Integer recommendStatus) {
-        this.recommendStatus = recommendStatus;
-    }
+  public void setRecommendStatus(Integer recommendStatus) {
+    this.recommendStatus = recommendStatus;
+  }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public Date getCreateTime() {
+    return createTime;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
 
-    public Integer getCollectCount() {
-        return collectCount;
-    }
+  public Integer getCollectCount() {
+    return collectCount;
+  }
 
-    public void setCollectCount(Integer collectCount) {
-        this.collectCount = collectCount;
-    }
+  public void setCollectCount(Integer collectCount) {
+    this.collectCount = collectCount;
+  }
 
-    public Integer getReadCount() {
-        return readCount;
-    }
+  public Integer getReadCount() {
+    return readCount;
+  }
 
-    public void setReadCount(Integer readCount) {
-        this.readCount = readCount;
-    }
+  public void setReadCount(Integer readCount) {
+    this.readCount = readCount;
+  }
 
-    public Integer getCommentCount() {
-        return commentCount;
-    }
+  public Integer getCommentCount() {
+    return commentCount;
+  }
 
-    public void setCommentCount(Integer commentCount) {
-        this.commentCount = commentCount;
-    }
+  public void setCommentCount(Integer commentCount) {
+    this.commentCount = commentCount;
+  }
 
-    public String getAlbumPics() {
-        return albumPics;
-    }
+  public String getAlbumPics() {
+    return albumPics;
+  }
 
-    public void setAlbumPics(String albumPics) {
-        this.albumPics = albumPics;
-    }
+  public void setAlbumPics(String albumPics) {
+    this.albumPics = albumPics;
+  }
 
-    public String getDescription() {
-        return description;
-    }
+  public String getDescription() {
+    return description;
+  }
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+  public void setDescription(String description) {
+    this.description = description;
+  }
 
-    public Integer getShowStatus() {
-        return showStatus;
-    }
+  public Integer getShowStatus() {
+    return showStatus;
+  }
 
-    public void setShowStatus(Integer showStatus) {
-        this.showStatus = showStatus;
-    }
+  public void setShowStatus(Integer showStatus) {
+    this.showStatus = showStatus;
+  }
 
-    public Integer getForwardCount() {
-        return forwardCount;
-    }
+  public Integer getForwardCount() {
+    return forwardCount;
+  }
 
-    public void setForwardCount(Integer forwardCount) {
-        this.forwardCount = forwardCount;
-    }
+  public void setForwardCount(Integer forwardCount) {
+    this.forwardCount = forwardCount;
+  }
 
-    public String getCategoryName() {
-        return categoryName;
-    }
+  public String getCategoryName() {
+    return categoryName;
+  }
 
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
+  public void setCategoryName(String categoryName) {
+    this.categoryName = categoryName;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", categoryId=").append(categoryId);
-        sb.append(", title=").append(title);
-        sb.append(", pic=").append(pic);
-        sb.append(", productCount=").append(productCount);
-        sb.append(", recommendStatus=").append(recommendStatus);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", collectCount=").append(collectCount);
-        sb.append(", readCount=").append(readCount);
-        sb.append(", commentCount=").append(commentCount);
-        sb.append(", albumPics=").append(albumPics);
-        sb.append(", description=").append(description);
-        sb.append(", showStatus=").append(showStatus);
-        sb.append(", forwardCount=").append(forwardCount);
-        sb.append(", categoryName=").append(categoryName);
-        sb.append(", content=").append(content);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", categoryId=").append(categoryId);
+    sb.append(", title=").append(title);
+    sb.append(", pic=").append(pic);
+    sb.append(", productCount=").append(productCount);
+    sb.append(", recommendStatus=").append(recommendStatus);
+    sb.append(", createTime=").append(createTime);
+    sb.append(", collectCount=").append(collectCount);
+    sb.append(", readCount=").append(readCount);
+    sb.append(", commentCount=").append(commentCount);
+    sb.append(", albumPics=").append(albumPics);
+    sb.append(", description=").append(description);
+    sb.append(", showStatus=").append(showStatus);
+    sb.append(", forwardCount=").append(forwardCount);
+    sb.append(", categoryName=").append(categoryName);
+    sb.append(", content=").append(content);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }

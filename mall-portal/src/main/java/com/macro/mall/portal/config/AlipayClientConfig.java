@@ -14,8 +14,15 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class AlipayClientConfig {
 
-    @Bean
-    public AlipayClient alipayClient(AlipayConfig config){
-        return new DefaultAlipayClient(config.getGatewayUrl(),config.getAppId(),config.getAppPrivateKey(), config.getFormat(),config.getCharset(),config.getAlipayPublicKey(),config.getSignType());
-    }
+  @Bean
+  public AlipayClient alipayClient(AlipayConfig config) {
+    return new DefaultAlipayClient(
+        config.getGatewayUrl(),
+        config.getAppId(),
+        config.getAppPrivateKey(),
+        config.getFormat(),
+        config.getCharset(),
+        config.getAlipayPublicKey(),
+        config.getSignType());
+  }
 }

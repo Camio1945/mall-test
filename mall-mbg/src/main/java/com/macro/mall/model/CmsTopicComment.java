@@ -1,97 +1,96 @@
 package com.macro.mall.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 import java.util.Date;
 
 public class CmsTopicComment implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private String memberNickName;
+  private Long id;
 
-    private Long topicId;
+  private String memberNickName;
 
-    private String memberIcon;
+  private Long topicId;
 
-    private String content;
+  private String memberIcon;
 
-    private Date createTime;
+  private String content;
 
-    private Integer showStatus;
+  private Date createTime;
 
-    private static final long serialVersionUID = 1L;
+  private Integer showStatus;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public String getMemberNickName() {
-        return memberNickName;
-    }
+  public String getMemberNickName() {
+    return memberNickName;
+  }
 
-    public void setMemberNickName(String memberNickName) {
-        this.memberNickName = memberNickName;
-    }
+  public void setMemberNickName(String memberNickName) {
+    this.memberNickName = memberNickName;
+  }
 
-    public Long getTopicId() {
-        return topicId;
-    }
+  public Long getTopicId() {
+    return topicId;
+  }
 
-    public void setTopicId(Long topicId) {
-        this.topicId = topicId;
-    }
+  public void setTopicId(Long topicId) {
+    this.topicId = topicId;
+  }
 
-    public String getMemberIcon() {
-        return memberIcon;
-    }
+  public String getMemberIcon() {
+    return memberIcon;
+  }
 
-    public void setMemberIcon(String memberIcon) {
-        this.memberIcon = memberIcon;
-    }
+  public void setMemberIcon(String memberIcon) {
+    this.memberIcon = memberIcon;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public Date getCreateTime() {
+    return createTime;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
 
-    public Integer getShowStatus() {
-        return showStatus;
-    }
+  public Integer getShowStatus() {
+    return showStatus;
+  }
 
-    public void setShowStatus(Integer showStatus) {
-        this.showStatus = showStatus;
-    }
+  public void setShowStatus(Integer showStatus) {
+    this.showStatus = showStatus;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", memberNickName=").append(memberNickName);
-        sb.append(", topicId=").append(topicId);
-        sb.append(", memberIcon=").append(memberIcon);
-        sb.append(", content=").append(content);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", showStatus=").append(showStatus);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", memberNickName=").append(memberNickName);
+    sb.append(", topicId=").append(topicId);
+    sb.append(", memberIcon=").append(memberIcon);
+    sb.append(", content=").append(content);
+    sb.append(", createTime=").append(createTime);
+    sb.append(", showStatus=").append(showStatus);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }
