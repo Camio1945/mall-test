@@ -6,25 +6,29 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OmsOrderOperateHistoryMapper {
-    long countByExample(OmsOrderOperateHistoryExample example);
+  long countByExample(OmsOrderOperateHistoryExample example);
 
-    int deleteByExample(OmsOrderOperateHistoryExample example);
+  int deleteByExample(OmsOrderOperateHistoryExample example);
 
-    int deleteByPrimaryKey(Long id);
+  int deleteByPrimaryKey(Long id);
 
-    int insert(OmsOrderOperateHistory record);
+  int insert(OmsOrderOperateHistory record);
 
-    int insertSelective(OmsOrderOperateHistory record);
+  int insertSelective(OmsOrderOperateHistory record);
 
-    List<OmsOrderOperateHistory> selectByExample(OmsOrderOperateHistoryExample example);
+  List<OmsOrderOperateHistory> selectByExample(OmsOrderOperateHistoryExample example);
 
-    OmsOrderOperateHistory selectByPrimaryKey(Long id);
+  OmsOrderOperateHistory selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") OmsOrderOperateHistory record, @Param("example") OmsOrderOperateHistoryExample example);
+  int updateByExampleSelective(
+      @Param("record") OmsOrderOperateHistory record,
+      @Param("example") OmsOrderOperateHistoryExample example);
 
-    int updateByExample(@Param("record") OmsOrderOperateHistory record, @Param("example") OmsOrderOperateHistoryExample example);
+  int updateByExample(
+      @Param("record") OmsOrderOperateHistory record,
+      @Param("example") OmsOrderOperateHistoryExample example);
 
-    int updateByPrimaryKeySelective(OmsOrderOperateHistory record);
+  int updateByPrimaryKeySelective(OmsOrderOperateHistory record);
 
-    int updateByPrimaryKey(OmsOrderOperateHistory record);
+  int updateByPrimaryKey(OmsOrderOperateHistory record);
 }

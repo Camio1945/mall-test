@@ -34,6 +34,7 @@ secure:
       - /actuator/**
       - /sso/**
       - /home/**
+      - /debug/**
       - /product/**
       - /brand/**
       - /alipay/**
@@ -43,8 +44,10 @@ redis:
   database: mall
   key:
     authCode: 'ums:authCode'
-    orderId: 'oms:orderId'
     member: 'ums:member'
+    memberAddresses: 'ums:memberAddresses'
+    orderId: 'oms:orderId'
+    memberCartItems: 'oms:memberCartItems'
   expire:
     authCode: 90 # 验证码超期时间
     common: 86400 # 24小时

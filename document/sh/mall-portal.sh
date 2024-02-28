@@ -6,7 +6,7 @@ docker rm ${app_name}
 echo '----rm container----'
 docker rmi `docker images | grep none | awk '{print $3}'`
 echo '----rm none images----'
-docker run -p 8085:8085 --name ${app_name} \
+docker run -p 18085:18085 --name ${app_name} \
 --link mysql:db \
 --link redis:redis \
 --link mongo:mongo \

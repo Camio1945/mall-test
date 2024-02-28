@@ -6,25 +6,29 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SmsHomeRecommendSubjectMapper {
-    long countByExample(SmsHomeRecommendSubjectExample example);
+  long countByExample(SmsHomeRecommendSubjectExample example);
 
-    int deleteByExample(SmsHomeRecommendSubjectExample example);
+  int deleteByExample(SmsHomeRecommendSubjectExample example);
 
-    int deleteByPrimaryKey(Long id);
+  int deleteByPrimaryKey(Long id);
 
-    int insert(SmsHomeRecommendSubject record);
+  int insert(SmsHomeRecommendSubject record);
 
-    int insertSelective(SmsHomeRecommendSubject record);
+  int insertSelective(SmsHomeRecommendSubject record);
 
-    List<SmsHomeRecommendSubject> selectByExample(SmsHomeRecommendSubjectExample example);
+  List<SmsHomeRecommendSubject> selectByExample(SmsHomeRecommendSubjectExample example);
 
-    SmsHomeRecommendSubject selectByPrimaryKey(Long id);
+  SmsHomeRecommendSubject selectByPrimaryKey(Long id);
 
-    int updateByExampleSelective(@Param("record") SmsHomeRecommendSubject record, @Param("example") SmsHomeRecommendSubjectExample example);
+  int updateByExampleSelective(
+      @Param("record") SmsHomeRecommendSubject record,
+      @Param("example") SmsHomeRecommendSubjectExample example);
 
-    int updateByExample(@Param("record") SmsHomeRecommendSubject record, @Param("example") SmsHomeRecommendSubjectExample example);
+  int updateByExample(
+      @Param("record") SmsHomeRecommendSubject record,
+      @Param("example") SmsHomeRecommendSubjectExample example);
 
-    int updateByPrimaryKeySelective(SmsHomeRecommendSubject record);
+  int updateByPrimaryKeySelective(SmsHomeRecommendSubject record);
 
-    int updateByPrimaryKey(SmsHomeRecommendSubject record);
+  int updateByPrimaryKey(SmsHomeRecommendSubject record);
 }

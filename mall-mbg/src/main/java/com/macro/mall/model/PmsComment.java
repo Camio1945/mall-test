@@ -5,186 +5,186 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PmsComment implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long productId;
+  private Long id;
 
-    private String memberNickName;
+  private Long productId;
 
-    private String productName;
+  private String memberNickName;
 
-    @ApiModelProperty(value = "评价星数：0->5")
-    private Integer star;
+  private String productName;
 
-    @ApiModelProperty(value = "评价的ip")
-    private String memberIp;
+  @ApiModelProperty(value = "评价星数：0->5")
+  private Integer star;
 
-    private Date createTime;
+  @ApiModelProperty(value = "评价的ip")
+  private String memberIp;
 
-    private Integer showStatus;
+  private Date createTime;
 
-    @ApiModelProperty(value = "购买时的商品属性")
-    private String productAttribute;
+  private Integer showStatus;
 
-    private Integer collectCouont;
+  @ApiModelProperty(value = "购买时的商品属性")
+  private String productAttribute;
 
-    private Integer readCount;
+  private Integer collectCouont;
 
-    @ApiModelProperty(value = "上传图片地址，以逗号隔开")
-    private String pics;
+  private Integer readCount;
 
-    @ApiModelProperty(value = "评论用户头像")
-    private String memberIcon;
+  @ApiModelProperty(value = "上传图片地址，以逗号隔开")
+  private String pics;
 
-    private Integer replayCount;
+  @ApiModelProperty(value = "评论用户头像")
+  private String memberIcon;
 
-    private String content;
+  private Integer replayCount;
 
-    private static final long serialVersionUID = 1L;
+  private String content;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getProductId() {
-        return productId;
-    }
+  public Long getProductId() {
+    return productId;
+  }
 
-    public void setProductId(Long productId) {
-        this.productId = productId;
-    }
+  public void setProductId(Long productId) {
+    this.productId = productId;
+  }
 
-    public String getMemberNickName() {
-        return memberNickName;
-    }
+  public String getMemberNickName() {
+    return memberNickName;
+  }
 
-    public void setMemberNickName(String memberNickName) {
-        this.memberNickName = memberNickName;
-    }
+  public void setMemberNickName(String memberNickName) {
+    this.memberNickName = memberNickName;
+  }
 
-    public String getProductName() {
-        return productName;
-    }
+  public String getProductName() {
+    return productName;
+  }
 
-    public void setProductName(String productName) {
-        this.productName = productName;
-    }
+  public void setProductName(String productName) {
+    this.productName = productName;
+  }
 
-    public Integer getStar() {
-        return star;
-    }
+  public Integer getStar() {
+    return star;
+  }
 
-    public void setStar(Integer star) {
-        this.star = star;
-    }
+  public void setStar(Integer star) {
+    this.star = star;
+  }
 
-    public String getMemberIp() {
-        return memberIp;
-    }
+  public String getMemberIp() {
+    return memberIp;
+  }
 
-    public void setMemberIp(String memberIp) {
-        this.memberIp = memberIp;
-    }
+  public void setMemberIp(String memberIp) {
+    this.memberIp = memberIp;
+  }
 
-    public Date getCreateTime() {
-        return createTime;
-    }
+  public Date getCreateTime() {
+    return createTime;
+  }
 
-    public void setCreateTime(Date createTime) {
-        this.createTime = createTime;
-    }
+  public void setCreateTime(Date createTime) {
+    this.createTime = createTime;
+  }
 
-    public Integer getShowStatus() {
-        return showStatus;
-    }
+  public Integer getShowStatus() {
+    return showStatus;
+  }
 
-    public void setShowStatus(Integer showStatus) {
-        this.showStatus = showStatus;
-    }
+  public void setShowStatus(Integer showStatus) {
+    this.showStatus = showStatus;
+  }
 
-    public String getProductAttribute() {
-        return productAttribute;
-    }
+  public String getProductAttribute() {
+    return productAttribute;
+  }
 
-    public void setProductAttribute(String productAttribute) {
-        this.productAttribute = productAttribute;
-    }
+  public void setProductAttribute(String productAttribute) {
+    this.productAttribute = productAttribute;
+  }
 
-    public Integer getCollectCouont() {
-        return collectCouont;
-    }
+  public Integer getCollectCouont() {
+    return collectCouont;
+  }
 
-    public void setCollectCouont(Integer collectCouont) {
-        this.collectCouont = collectCouont;
-    }
+  public void setCollectCouont(Integer collectCouont) {
+    this.collectCouont = collectCouont;
+  }
 
-    public Integer getReadCount() {
-        return readCount;
-    }
+  public Integer getReadCount() {
+    return readCount;
+  }
 
-    public void setReadCount(Integer readCount) {
-        this.readCount = readCount;
-    }
+  public void setReadCount(Integer readCount) {
+    this.readCount = readCount;
+  }
 
-    public String getPics() {
-        return pics;
-    }
+  public String getPics() {
+    return pics;
+  }
 
-    public void setPics(String pics) {
-        this.pics = pics;
-    }
+  public void setPics(String pics) {
+    this.pics = pics;
+  }
 
-    public String getMemberIcon() {
-        return memberIcon;
-    }
+  public String getMemberIcon() {
+    return memberIcon;
+  }
 
-    public void setMemberIcon(String memberIcon) {
-        this.memberIcon = memberIcon;
-    }
+  public void setMemberIcon(String memberIcon) {
+    this.memberIcon = memberIcon;
+  }
 
-    public Integer getReplayCount() {
-        return replayCount;
-    }
+  public Integer getReplayCount() {
+    return replayCount;
+  }
 
-    public void setReplayCount(Integer replayCount) {
-        this.replayCount = replayCount;
-    }
+  public void setReplayCount(Integer replayCount) {
+    this.replayCount = replayCount;
+  }
 
-    public String getContent() {
-        return content;
-    }
+  public String getContent() {
+    return content;
+  }
 
-    public void setContent(String content) {
-        this.content = content;
-    }
+  public void setContent(String content) {
+    this.content = content;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", productId=").append(productId);
-        sb.append(", memberNickName=").append(memberNickName);
-        sb.append(", productName=").append(productName);
-        sb.append(", star=").append(star);
-        sb.append(", memberIp=").append(memberIp);
-        sb.append(", createTime=").append(createTime);
-        sb.append(", showStatus=").append(showStatus);
-        sb.append(", productAttribute=").append(productAttribute);
-        sb.append(", collectCouont=").append(collectCouont);
-        sb.append(", readCount=").append(readCount);
-        sb.append(", pics=").append(pics);
-        sb.append(", memberIcon=").append(memberIcon);
-        sb.append(", replayCount=").append(replayCount);
-        sb.append(", content=").append(content);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", productId=").append(productId);
+    sb.append(", memberNickName=").append(memberNickName);
+    sb.append(", productName=").append(productName);
+    sb.append(", star=").append(star);
+    sb.append(", memberIp=").append(memberIp);
+    sb.append(", createTime=").append(createTime);
+    sb.append(", showStatus=").append(showStatus);
+    sb.append(", productAttribute=").append(productAttribute);
+    sb.append(", collectCouont=").append(collectCouont);
+    sb.append(", readCount=").append(readCount);
+    sb.append(", pics=").append(pics);
+    sb.append(", memberIcon=").append(memberIcon);
+    sb.append(", replayCount=").append(replayCount);
+    sb.append(", content=").append(content);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }

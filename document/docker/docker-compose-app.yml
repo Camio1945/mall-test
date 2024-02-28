@@ -29,7 +29,7 @@ services:
     image: mall/mall-portal:1.0-SNAPSHOT
     container_name: mall-portal
     ports:
-      - 8085:8085
+      - 18085:18085
     volumes:
       - /mydata/app/mall-portal/logs:/var/logs
       - /etc/localtime:/etc/localtime

@@ -1,63 +1,62 @@
 package com.macro.mall.model;
 
-import io.swagger.annotations.ApiModelProperty;
 import java.io.Serializable;
 
 public class UmsAdminPermissionRelation implements Serializable {
-    private Long id;
+  private static final long serialVersionUID = 1L;
 
-    private Long adminId;
+  private Long id;
 
-    private Long permissionId;
+  private Long adminId;
 
-    private Integer type;
+  private Long permissionId;
 
-    private static final long serialVersionUID = 1L;
+  private Integer type;
 
-    public Long getId() {
-        return id;
-    }
+  public Long getId() {
+    return id;
+  }
 
-    public void setId(Long id) {
-        this.id = id;
-    }
+  public void setId(Long id) {
+    this.id = id;
+  }
 
-    public Long getAdminId() {
-        return adminId;
-    }
+  public Long getAdminId() {
+    return adminId;
+  }
 
-    public void setAdminId(Long adminId) {
-        this.adminId = adminId;
-    }
+  public void setAdminId(Long adminId) {
+    this.adminId = adminId;
+  }
 
-    public Long getPermissionId() {
-        return permissionId;
-    }
+  public Long getPermissionId() {
+    return permissionId;
+  }
 
-    public void setPermissionId(Long permissionId) {
-        this.permissionId = permissionId;
-    }
+  public void setPermissionId(Long permissionId) {
+    this.permissionId = permissionId;
+  }
 
-    public Integer getType() {
-        return type;
-    }
+  public Integer getType() {
+    return type;
+  }
 
-    public void setType(Integer type) {
-        this.type = type;
-    }
+  public void setType(Integer type) {
+    this.type = type;
+  }
 
-    @Override
-    public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(getClass().getSimpleName());
-        sb.append(" [");
-        sb.append("Hash = ").append(hashCode());
-        sb.append(", id=").append(id);
-        sb.append(", adminId=").append(adminId);
-        sb.append(", permissionId=").append(permissionId);
-        sb.append(", type=").append(type);
-        sb.append(", serialVersionUID=").append(serialVersionUID);
-        sb.append("]");
-        return sb.toString();
-    }
+  @Override
+  public String toString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append(getClass().getSimpleName());
+    sb.append(" [");
+    sb.append("Hash = ").append(hashCode());
+    sb.append(", id=").append(id);
+    sb.append(", adminId=").append(adminId);
+    sb.append(", permissionId=").append(permissionId);
+    sb.append(", type=").append(type);
+    sb.append(", serialVersionUID=").append(serialVersionUID);
+    sb.append("]");
+    return sb.toString();
+  }
 }
