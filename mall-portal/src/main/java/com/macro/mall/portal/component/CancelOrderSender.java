@@ -17,7 +17,6 @@ public class CancelOrderSender {
   private static final Logger LOGGER = LoggerFactory.getLogger(CancelOrderSender.class);
   @Autowired private AmqpTemplate amqpTemplate;
 
-  // @TrackExecutionTime
   public void sendMessage(Long orderId, final long delayTimes) {
     // 给延迟队列发送消息
     amqpTemplate.convertAndSend(

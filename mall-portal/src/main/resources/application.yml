@@ -48,6 +48,7 @@ redis:
     memberAddresses: 'ums:memberAddresses'
     orderId: 'oms:orderId'
     memberCartItems: 'oms:memberCartItems'
+    promotionProduct: 'pms:promotionProduct'
   expire:
     authCode: 90 # 验证码超期时间
     common: 86400 # 24小时

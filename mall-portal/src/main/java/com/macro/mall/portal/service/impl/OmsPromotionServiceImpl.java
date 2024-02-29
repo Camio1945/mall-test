@@ -1,5 +1,6 @@
 package com.macro.mall.portal.service.impl;
 
+import com.macro.mall.common.log.TrackExecutionTime;
 import com.macro.mall.model.OmsCartItem;
 import com.macro.mall.model.PmsProductFullReduction;
 import com.macro.mall.model.PmsProductLadder;
@@ -8,6 +9,7 @@ import com.macro.mall.portal.dao.PortalProductDao;
 import com.macro.mall.portal.domain.CartPromotionItem;
 import com.macro.mall.portal.domain.PromotionProduct;
 import com.macro.mall.portal.service.OmsPromotionService;
+import com.macro.mall.portal.service.PmsPortalProductCacheService;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.*;
@@ -19,8 +21,10 @@ import org.springframework.stereotype.Service;
 @Service
 public class OmsPromotionServiceImpl implements OmsPromotionService {
   @Autowired private PortalProductDao portalProductDao;
+  @Autowired private PmsPortalProductCacheService portalProductCacheService;
 
   @Override
+  // @TrackExecutionTime
   public List<CartPromotionItem> calcCartPromotion(List<OmsCartItem> cartItemList) {
     // 1.先根据productId对CartItem进行分组，以spu为单位进行计算优惠
     Map<Long, List<OmsCartItem>> productCartMap = groupCartItemBySpu(cartItemList);
@@ -131,7 +135,7 @@ public class OmsPromotionServiceImpl implements OmsPromotionService {
     for (OmsCartItem cartItem : cartItemList) {
       productIdList.add(cartItem.getProductId());
     }
-    return portalProductDao.getPromotionProductList(productIdList);
+    return portalProductCacheService.getPromotionProductList(productIdList);
   }
 
   /** 根据商品id获取商品的促销信息 */

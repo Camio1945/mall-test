@@ -1,5 +1,6 @@
 package com.macro.mall.portal.dao;
 
+import com.macro.mall.common.log.TrackExecutionTime;
 import com.macro.mall.model.SmsCoupon;
 import com.macro.mall.portal.domain.CartProduct;
 import com.macro.mall.portal.domain.PromotionProduct;

@@ -1,5 +1,6 @@
 package com.macro.mall.portal.service.impl;
 
+import cn.hutool.core.collection.CollUtil;
 import com.macro.mall.common.log.TrackExecutionTime;
 import com.macro.mall.mapper.UmsMemberReceiveAddressMapper;
 import com.macro.mall.model.UmsMember;
@@ -87,12 +88,18 @@ public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddre
   }
 
   @Override
-  // @TrackExecutionTime
   public UmsMemberReceiveAddress getItem(Long id) {
     UmsMember currentMember = memberService.getCurrentMember();
     UmsMemberReceiveAddressExample example = new UmsMemberReceiveAddressExample();
-    example.createCriteria().andMemberIdEqualTo(currentMember.getId()).andIdEqualTo(id);
-    List<UmsMemberReceiveAddress> addressList = addressMapper.selectByExample(example);
+    Long memberId = currentMember.getId();
+    List<UmsMemberReceiveAddress> addressList =
+        addressCacheService.getAddressListOfMember(memberId);
+    if (CollUtil.isNotEmpty(addressList)
+        && (addressList.get(0).getMemberId().longValue() == memberId.longValue())) {
+      return addressList.get(0);
+    }
+    example.createCriteria().andMemberIdEqualTo(memberId).andIdEqualTo(id);
+    addressList = addressMapper.selectByExample(example);
     if (!CollectionUtils.isEmpty(addressList)) {
       return addressList.get(0);
     }

@@ -16,6 +16,9 @@ public interface RedisService {
   /** 获取属性 */
   Object get(String key);
 
+  /** 获取属性列表 */
+  List<Object> multiGet(List<String> keys);
+
   /** 删除属性 */
   Boolean del(String key);
 

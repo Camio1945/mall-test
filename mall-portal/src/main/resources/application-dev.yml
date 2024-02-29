@@ -17,7 +17,7 @@ spring:
         login-password: druid
   data:
     mongodb:
-      host: localhost
+      host: 172.20.2.103
       port: 27017
       database: mall-port
   redis:
@@ -27,7 +27,7 @@ spring:
     password: # Redis服务器连接密码（默认为空）
     timeout: 300ms # 连接超时时间（毫秒）
   rabbitmq:
-    host: localhost
+    host: 172.20.2.103
     port: 5672
     virtual-host: /mall
     username: mall
@@ -39,7 +39,7 @@ logging:
     com.macro.mall: debug
 
 logstash:
-  host: localhost
+  host: 172.20.2.103
   enableInnerLog: false
 
 alipay:
@@ -47,6 +47,6 @@ alipay:
   appId: your appId
   alipayPublicKey: your alipayPublicKey
   appPrivateKey: your appPrivateKey
-  returnUrl: http://localhost:8060/#/pages/money/paySuccess
+  returnUrl: http://172.20.2.103:8060/#/pages/money/paySuccess
   notifyUrl:
 

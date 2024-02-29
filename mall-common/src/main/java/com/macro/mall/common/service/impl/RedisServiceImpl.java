@@ -28,6 +28,11 @@ public class RedisServiceImpl implements RedisService {
   }
 
   @Override
+  public List<Object> multiGet(List<String> keys) {
+    return redisTemplate.opsForValue().multiGet(keys);
+  }
+
+  @Override
   public Boolean del(String key) {
     return redisTemplate.delete(key);
   }

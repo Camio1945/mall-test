@@ -84,7 +84,6 @@ public class OmsCartItemServiceImpl implements OmsCartItemService {
   }
 
   @Override
-  // @TrackExecutionTime
   public List<CartPromotionItem> listPromotion(Long memberId, List<Long> cartIds) {
     List<OmsCartItem> cartItemList = list(memberId);
     if (CollUtil.isNotEmpty(cartIds)) {
