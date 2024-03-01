@@ -6,26 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsMenuMapper {
-  long countByExample(UmsMenuExample example);
+    long countByExample(UmsMenuExample example);
 
-  int deleteByExample(UmsMenuExample example);
+    int deleteByExample(UmsMenuExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(UmsMenu record);
+    int insert(UmsMenu row);
 
-  int insertSelective(UmsMenu record);
+    int insertSelective(UmsMenu row);
 
-  List<UmsMenu> selectByExample(UmsMenuExample example);
+    List<UmsMenu> selectByExample(UmsMenuExample example);
 
-  UmsMenu selectByPrimaryKey(Long id);
+    UmsMenu selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") UmsMenu record, @Param("example") UmsMenuExample example);
+    int updateByExampleSelective(@Param("row") UmsMenu row, @Param("example") UmsMenuExample example);
 
-  int updateByExample(@Param("record") UmsMenu record, @Param("example") UmsMenuExample example);
+    int updateByExample(@Param("row") UmsMenu row, @Param("example") UmsMenuExample example);
 
-  int updateByPrimaryKeySelective(UmsMenu record);
+    int updateByPrimaryKeySelective(UmsMenu row);
 
-  int updateByPrimaryKey(UmsMenu record);
+    int updateByPrimaryKey(UmsMenu row);
 }

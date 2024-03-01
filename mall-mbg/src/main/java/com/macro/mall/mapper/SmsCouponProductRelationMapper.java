@@ -6,29 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface SmsCouponProductRelationMapper {
-  long countByExample(SmsCouponProductRelationExample example);
+    long countByExample(SmsCouponProductRelationExample example);
 
-  int deleteByExample(SmsCouponProductRelationExample example);
+    int deleteByExample(SmsCouponProductRelationExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(SmsCouponProductRelation record);
+    int insert(SmsCouponProductRelation row);
 
-  int insertSelective(SmsCouponProductRelation record);
+    int insertSelective(SmsCouponProductRelation row);
 
-  List<SmsCouponProductRelation> selectByExample(SmsCouponProductRelationExample example);
+    List<SmsCouponProductRelation> selectByExample(SmsCouponProductRelationExample example);
 
-  SmsCouponProductRelation selectByPrimaryKey(Long id);
+    SmsCouponProductRelation selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") SmsCouponProductRelation record,
-      @Param("example") SmsCouponProductRelationExample example);
+    int updateByExampleSelective(@Param("row") SmsCouponProductRelation row, @Param("example") SmsCouponProductRelationExample example);
 
-  int updateByExample(
-      @Param("record") SmsCouponProductRelation record,
-      @Param("example") SmsCouponProductRelationExample example);
+    int updateByExample(@Param("row") SmsCouponProductRelation row, @Param("example") SmsCouponProductRelationExample example);
 
-  int updateByPrimaryKeySelective(SmsCouponProductRelation record);
+    int updateByPrimaryKeySelective(SmsCouponProductRelation row);
 
-  int updateByPrimaryKey(SmsCouponProductRelation record);
+    int updateByPrimaryKey(SmsCouponProductRelation row);
 }

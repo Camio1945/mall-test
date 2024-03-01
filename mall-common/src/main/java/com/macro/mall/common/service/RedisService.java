@@ -79,6 +79,9 @@ public interface RedisService {
   /** 向Set结构中添加属性 */
   Long sAdd(String key, long time, Object... values);
 
+  /** 从Set中弹出一项 */
+  Object sPop(String key);
+
   /** 是否为Set中的属性 */
   Boolean sIsMember(String key, Object value);
 

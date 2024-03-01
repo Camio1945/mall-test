@@ -6,26 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PmsAlbumMapper {
-  long countByExample(PmsAlbumExample example);
+    long countByExample(PmsAlbumExample example);
 
-  int deleteByExample(PmsAlbumExample example);
+    int deleteByExample(PmsAlbumExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(PmsAlbum record);
+    int insert(PmsAlbum row);
 
-  int insertSelective(PmsAlbum record);
+    int insertSelective(PmsAlbum row);
 
-  List<PmsAlbum> selectByExample(PmsAlbumExample example);
+    List<PmsAlbum> selectByExample(PmsAlbumExample example);
 
-  PmsAlbum selectByPrimaryKey(Long id);
+    PmsAlbum selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") PmsAlbum record, @Param("example") PmsAlbumExample example);
+    int updateByExampleSelective(@Param("row") PmsAlbum row, @Param("example") PmsAlbumExample example);
 
-  int updateByExample(@Param("record") PmsAlbum record, @Param("example") PmsAlbumExample example);
+    int updateByExample(@Param("row") PmsAlbum row, @Param("example") PmsAlbumExample example);
 
-  int updateByPrimaryKeySelective(PmsAlbum record);
+    int updateByPrimaryKeySelective(PmsAlbum row);
 
-  int updateByPrimaryKey(PmsAlbum record);
+    int updateByPrimaryKey(PmsAlbum row);
 }

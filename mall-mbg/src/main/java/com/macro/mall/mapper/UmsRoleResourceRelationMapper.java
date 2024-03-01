@@ -6,29 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsRoleResourceRelationMapper {
-  long countByExample(UmsRoleResourceRelationExample example);
+    long countByExample(UmsRoleResourceRelationExample example);
 
-  int deleteByExample(UmsRoleResourceRelationExample example);
+    int deleteByExample(UmsRoleResourceRelationExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(UmsRoleResourceRelation record);
+    int insert(UmsRoleResourceRelation row);
 
-  int insertSelective(UmsRoleResourceRelation record);
+    int insertSelective(UmsRoleResourceRelation row);
 
-  List<UmsRoleResourceRelation> selectByExample(UmsRoleResourceRelationExample example);
+    List<UmsRoleResourceRelation> selectByExample(UmsRoleResourceRelationExample example);
 
-  UmsRoleResourceRelation selectByPrimaryKey(Long id);
+    UmsRoleResourceRelation selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") UmsRoleResourceRelation record,
-      @Param("example") UmsRoleResourceRelationExample example);
+    int updateByExampleSelective(@Param("row") UmsRoleResourceRelation row, @Param("example") UmsRoleResourceRelationExample example);
 
-  int updateByExample(
-      @Param("record") UmsRoleResourceRelation record,
-      @Param("example") UmsRoleResourceRelationExample example);
+    int updateByExample(@Param("row") UmsRoleResourceRelation row, @Param("example") UmsRoleResourceRelationExample example);
 
-  int updateByPrimaryKeySelective(UmsRoleResourceRelation record);
+    int updateByPrimaryKeySelective(UmsRoleResourceRelation row);
 
-  int updateByPrimaryKey(UmsRoleResourceRelation record);
+    int updateByPrimaryKey(UmsRoleResourceRelation row);
 }

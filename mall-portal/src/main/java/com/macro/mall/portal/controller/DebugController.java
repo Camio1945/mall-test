@@ -1,14 +1,17 @@
 package com.macro.mall.portal.controller;
 
 import cn.hutool.core.date.DateUtil;
+import com.github.pagehelper.PageHelper;
 import com.macro.mall.common.api.CommonResult;
-import com.macro.mall.mapper.OmsCartItemMapper;
-import com.macro.mall.model.OmsCartItem;
+import com.macro.mall.mapper.*;
+import com.macro.mall.model.*;
 import com.macro.mall.portal.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.math.BigDecimal;
+import java.util.List;
+import java.util.stream.LongStream;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -25,28 +28,61 @@ import org.springframework.web.bind.annotation.*;
 public class DebugController {
   @Autowired private UmsMemberCacheService memberCacheService;
   @Autowired private OmsCartItemCacheService cartItemCacheService;
+  @Autowired private OmsCartItemService cartItemService;
+  @Autowired private UmsMemberReceiveAddressMapper addressMapper;
   @Autowired private OmsCartItemMapper cartItemMapper;
   @Autowired private UmsMemberReceiveAddressCacheService addressCacheService;
+  @Autowired private OmsOrderMapper orderMapper;
+  @Autowired private OmsPortalOrderCacheService orderCacheService;
 
   @ApiOperation("准备（主要是缓存数据）")
   @GetMapping(value = "/prepare")
   @ResponseBody
   public CommonResult<String> prepare() {
-    long startMemberId = 12;
-    long endMemberId = startMemberId + 9999;
-    for (long memberId = startMemberId; memberId <= endMemberId; memberId++) {
-      String userName = "member" + (memberId - startMemberId);
-      loadCache(userName, memberId);
-    }
+    LongStream.range(0, 10001)
+        .parallel()
+        .forEach(i -> loadCache("member" + i, i + 12));
+    generatePreOrder();
     return CommonResult.success("操作成功");
   }
 
   private void loadCache(String userName, Long memberId) {
     memberCacheService.getMember(userName);
     cartItemCacheService.delCartItemListOfMember(memberId);
-    cartItemCacheService.getCartItemListOfMember(memberId);
+    cartItemService.list(memberId);
     addressCacheService.delAddressListOfMember(memberId);
-    addressCacheService.getAddressListOfMember(memberId);
+    UmsMemberReceiveAddressExample example = new UmsMemberReceiveAddressExample();
+    example.createCriteria().andMemberIdEqualTo(memberId);
+    List<UmsMemberReceiveAddress> addressList = addressMapper.selectByExample(example);
+    if (addressList != null) {
+      addressCacheService.setAddressListOfMember(memberId, addressList);
+    }
+  }
+
+  /** 生成预订单 */
+  private void generatePreOrder() {
+    OmsOrderExample example = new OmsOrderExample();
+    example.setOrderByClause("id asc");
+    example.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo((byte) 1);
+    int total = 10100 - (int) orderMapper.countByExample(example);
+    for (int i = 0; i < total; i++) {
+      OmsOrder order = new OmsOrder();
+      order.setMemberId(0L);
+      order.setReceiverName("");
+      order.setReceiverPhone("");
+      order.setDeleteStatus(0);
+      order.setIsPre((byte) 1);
+      orderMapper.insert(order);
+    }
+    List<OmsOrder> omsOrders = orderMapper.selectByExample(example);
+    orderCacheService.putPreOrderList(omsOrders);
+  }
+
+  @ApiOperation("临时测试")
+  @GetMapping(value = "/temp")
+  @ResponseBody
+  public CommonResult<String> temp() {
+    return CommonResult.success("" + orderCacheService.popPreOrder());
   }
 
   @ApiOperation("恢复压测时的第一个用户的数据")
@@ -84,13 +120,33 @@ public class DebugController {
       cartItemMapper.updateByPrimaryKey(cartItem);
     }
     loadCache(userName, memberId);
+    loadOnePageOfPreOrders();
     return CommonResult.success("操作成功");
+  }
+
+  private void loadOnePageOfPreOrders() {
+    OmsOrderExample example = new OmsOrderExample();
+    example.setOrderByClause("id asc");
+    example.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo((byte) 1);
+    int total = 10100 - (int) orderMapper.countByExample(example);
+    for (int i = 0; i < total; i++) {
+      OmsOrder order = new OmsOrder();
+      order.setMemberId(0L);
+      order.setReceiverName("");
+      order.setReceiverPhone("");
+      order.setDeleteStatus(0);
+      order.setIsPre((byte) 1);
+      orderMapper.insert(order);
+    }
+    PageHelper.startPage(1, 10);
+    List<OmsOrder> omsOrders = orderMapper.selectByExample(example);
+    orderCacheService.putPreOrderList(omsOrders);
   }
 
   @ApiOperation("版本号")
   @GetMapping(value = "/version")
   @ResponseBody
   public CommonResult<String> version() {
-    return CommonResult.success("3.0");
+    return CommonResult.success("4.0");
   }
 }

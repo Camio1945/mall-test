@@ -6,27 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsResourceMapper {
-  long countByExample(UmsResourceExample example);
+    long countByExample(UmsResourceExample example);
 
-  int deleteByExample(UmsResourceExample example);
+    int deleteByExample(UmsResourceExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(UmsResource record);
+    int insert(UmsResource row);
 
-  int insertSelective(UmsResource record);
+    int insertSelective(UmsResource row);
 
-  List<UmsResource> selectByExample(UmsResourceExample example);
+    List<UmsResource> selectByExample(UmsResourceExample example);
 
-  UmsResource selectByPrimaryKey(Long id);
+    UmsResource selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") UmsResource record, @Param("example") UmsResourceExample example);
+    int updateByExampleSelective(@Param("row") UmsResource row, @Param("example") UmsResourceExample example);
 
-  int updateByExample(
-      @Param("record") UmsResource record, @Param("example") UmsResourceExample example);
+    int updateByExample(@Param("row") UmsResource row, @Param("example") UmsResourceExample example);
 
-  int updateByPrimaryKeySelective(UmsResource record);
+    int updateByPrimaryKeySelective(UmsResource row);
 
-  int updateByPrimaryKey(UmsResource record);
+    int updateByPrimaryKey(UmsResource row);
 }

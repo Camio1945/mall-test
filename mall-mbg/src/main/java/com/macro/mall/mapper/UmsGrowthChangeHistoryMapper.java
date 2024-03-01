@@ -6,29 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface UmsGrowthChangeHistoryMapper {
-  long countByExample(UmsGrowthChangeHistoryExample example);
+    long countByExample(UmsGrowthChangeHistoryExample example);
 
-  int deleteByExample(UmsGrowthChangeHistoryExample example);
+    int deleteByExample(UmsGrowthChangeHistoryExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(UmsGrowthChangeHistory record);
+    int insert(UmsGrowthChangeHistory row);
 
-  int insertSelective(UmsGrowthChangeHistory record);
+    int insertSelective(UmsGrowthChangeHistory row);
 
-  List<UmsGrowthChangeHistory> selectByExample(UmsGrowthChangeHistoryExample example);
+    List<UmsGrowthChangeHistory> selectByExample(UmsGrowthChangeHistoryExample example);
 
-  UmsGrowthChangeHistory selectByPrimaryKey(Long id);
+    UmsGrowthChangeHistory selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") UmsGrowthChangeHistory record,
-      @Param("example") UmsGrowthChangeHistoryExample example);
+    int updateByExampleSelective(@Param("row") UmsGrowthChangeHistory row, @Param("example") UmsGrowthChangeHistoryExample example);
 
-  int updateByExample(
-      @Param("record") UmsGrowthChangeHistory record,
-      @Param("example") UmsGrowthChangeHistoryExample example);
+    int updateByExample(@Param("row") UmsGrowthChangeHistory row, @Param("example") UmsGrowthChangeHistoryExample example);
 
-  int updateByPrimaryKeySelective(UmsGrowthChangeHistory record);
+    int updateByPrimaryKeySelective(UmsGrowthChangeHistory row);
 
-  int updateByPrimaryKey(UmsGrowthChangeHistory record);
+    int updateByPrimaryKey(UmsGrowthChangeHistory row);
 }

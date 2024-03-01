@@ -6,29 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface PmsFeightTemplateMapper {
-  long countByExample(PmsFeightTemplateExample example);
+    long countByExample(PmsFeightTemplateExample example);
 
-  int deleteByExample(PmsFeightTemplateExample example);
+    int deleteByExample(PmsFeightTemplateExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(PmsFeightTemplate record);
+    int insert(PmsFeightTemplate row);
 
-  int insertSelective(PmsFeightTemplate record);
+    int insertSelective(PmsFeightTemplate row);
 
-  List<PmsFeightTemplate> selectByExample(PmsFeightTemplateExample example);
+    List<PmsFeightTemplate> selectByExample(PmsFeightTemplateExample example);
 
-  PmsFeightTemplate selectByPrimaryKey(Long id);
+    PmsFeightTemplate selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") PmsFeightTemplate record,
-      @Param("example") PmsFeightTemplateExample example);
+    int updateByExampleSelective(@Param("row") PmsFeightTemplate row, @Param("example") PmsFeightTemplateExample example);
 
-  int updateByExample(
-      @Param("record") PmsFeightTemplate record,
-      @Param("example") PmsFeightTemplateExample example);
+    int updateByExample(@Param("row") PmsFeightTemplate row, @Param("example") PmsFeightTemplateExample example);
 
-  int updateByPrimaryKeySelective(PmsFeightTemplate record);
+    int updateByPrimaryKeySelective(PmsFeightTemplate row);
 
-  int updateByPrimaryKey(PmsFeightTemplate record);
+    int updateByPrimaryKey(PmsFeightTemplate row);
 }

@@ -6,27 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OmsOrderItemMapper {
-  long countByExample(OmsOrderItemExample example);
+    long countByExample(OmsOrderItemExample example);
 
-  int deleteByExample(OmsOrderItemExample example);
+    int deleteByExample(OmsOrderItemExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(OmsOrderItem record);
+    int insert(OmsOrderItem row);
 
-  int insertSelective(OmsOrderItem record);
+    int insertSelective(OmsOrderItem row);
 
-  List<OmsOrderItem> selectByExample(OmsOrderItemExample example);
+    List<OmsOrderItem> selectByExample(OmsOrderItemExample example);
 
-  OmsOrderItem selectByPrimaryKey(Long id);
+    OmsOrderItem selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") OmsOrderItem record, @Param("example") OmsOrderItemExample example);
+    int updateByExampleSelective(@Param("row") OmsOrderItem row, @Param("example") OmsOrderItemExample example);
 
-  int updateByExample(
-      @Param("record") OmsOrderItem record, @Param("example") OmsOrderItemExample example);
+    int updateByExample(@Param("row") OmsOrderItem row, @Param("example") OmsOrderItemExample example);
 
-  int updateByPrimaryKeySelective(OmsOrderItem record);
+    int updateByPrimaryKeySelective(OmsOrderItem row);
 
-  int updateByPrimaryKey(OmsOrderItem record);
+    int updateByPrimaryKey(OmsOrderItem row);
 }

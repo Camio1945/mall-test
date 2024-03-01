@@ -6,27 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface OmsCartItemMapper {
-  long countByExample(OmsCartItemExample example);
+    long countByExample(OmsCartItemExample example);
 
-  int deleteByExample(OmsCartItemExample example);
+    int deleteByExample(OmsCartItemExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(OmsCartItem record);
+    int insert(OmsCartItem row);
 
-  int insertSelective(OmsCartItem record);
+    int insertSelective(OmsCartItem row);
 
-  List<OmsCartItem> selectByExample(OmsCartItemExample example);
+    List<OmsCartItem> selectByExample(OmsCartItemExample example);
 
-  OmsCartItem selectByPrimaryKey(Long id);
+    OmsCartItem selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") OmsCartItem record, @Param("example") OmsCartItemExample example);
+    int updateByExampleSelective(@Param("row") OmsCartItem row, @Param("example") OmsCartItemExample example);
 
-  int updateByExample(
-      @Param("record") OmsCartItem record, @Param("example") OmsCartItemExample example);
+    int updateByExample(@Param("row") OmsCartItem row, @Param("example") OmsCartItemExample example);
 
-  int updateByPrimaryKeySelective(OmsCartItem record);
+    int updateByPrimaryKeySelective(OmsCartItem row);
 
-  int updateByPrimaryKey(OmsCartItem record);
+    int updateByPrimaryKey(OmsCartItem row);
 }

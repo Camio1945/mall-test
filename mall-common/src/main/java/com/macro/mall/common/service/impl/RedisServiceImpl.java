@@ -137,6 +137,11 @@ public class RedisServiceImpl implements RedisService {
   }
 
   @Override
+  public Object sPop(String key) {
+    return redisTemplate.opsForSet().pop(key);
+  }
+
+  @Override
   public Boolean sIsMember(String key, Object value) {
     return redisTemplate.opsForSet().isMember(key, value);
   }

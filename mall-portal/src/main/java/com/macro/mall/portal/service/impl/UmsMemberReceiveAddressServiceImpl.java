@@ -1,7 +1,6 @@
 package com.macro.mall.portal.service.impl;
 
 import cn.hutool.core.collection.CollUtil;
-import com.macro.mall.common.log.TrackExecutionTime;
 import com.macro.mall.mapper.UmsMemberReceiveAddressMapper;
 import com.macro.mall.model.UmsMember;
 import com.macro.mall.model.UmsMemberReceiveAddress;
@@ -101,6 +100,7 @@ public class UmsMemberReceiveAddressServiceImpl implements UmsMemberReceiveAddre
     example.createCriteria().andMemberIdEqualTo(memberId).andIdEqualTo(id);
     addressList = addressMapper.selectByExample(example);
     if (!CollectionUtils.isEmpty(addressList)) {
+      addressCacheService.setAddressListOfMember(memberId, addressList);
       return addressList.get(0);
     }
     return null;

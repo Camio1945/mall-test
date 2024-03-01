@@ -6,27 +6,25 @@ import java.util.List;
 import org.apache.ibatis.annotations.Param;
 
 public interface CmsTopicCommentMapper {
-  long countByExample(CmsTopicCommentExample example);
+    long countByExample(CmsTopicCommentExample example);
 
-  int deleteByExample(CmsTopicCommentExample example);
+    int deleteByExample(CmsTopicCommentExample example);
 
-  int deleteByPrimaryKey(Long id);
+    int deleteByPrimaryKey(Long id);
 
-  int insert(CmsTopicComment record);
+    int insert(CmsTopicComment row);
 
-  int insertSelective(CmsTopicComment record);
+    int insertSelective(CmsTopicComment row);
 
-  List<CmsTopicComment> selectByExample(CmsTopicCommentExample example);
+    List<CmsTopicComment> selectByExample(CmsTopicCommentExample example);
 
-  CmsTopicComment selectByPrimaryKey(Long id);
+    CmsTopicComment selectByPrimaryKey(Long id);
 
-  int updateByExampleSelective(
-      @Param("record") CmsTopicComment record, @Param("example") CmsTopicCommentExample example);
+    int updateByExampleSelective(@Param("row") CmsTopicComment row, @Param("example") CmsTopicCommentExample example);
 
-  int updateByExample(
-      @Param("record") CmsTopicComment record, @Param("example") CmsTopicCommentExample example);
+    int updateByExample(@Param("row") CmsTopicComment row, @Param("example") CmsTopicCommentExample example);
 
-  int updateByPrimaryKeySelective(CmsTopicComment record);
+    int updateByPrimaryKeySelective(CmsTopicComment row);
 
-  int updateByPrimaryKey(CmsTopicComment record);
+    int updateByPrimaryKey(CmsTopicComment row);
 }

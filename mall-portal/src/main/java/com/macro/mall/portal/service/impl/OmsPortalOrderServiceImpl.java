@@ -36,11 +36,11 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
   @Autowired private UmsMemberCouponService memberCouponService;
   @Autowired private UmsIntegrationConsumeSettingMapper integrationConsumeSettingMapper;
   @Autowired private PmsSkuStockMapper skuStockMapper;
-  @Autowired private SmsCouponHistoryDao couponHistoryDao;
   @Autowired private OmsOrderMapper orderMapper;
   @Autowired private PortalOrderItemDao orderItemDao;
   @Autowired private SmsCouponHistoryMapper couponHistoryMapper;
   @Autowired private RedisService redisService;
+  @Autowired private OmsPortalOrderCacheService orderCacheService;
 
   @Value("${redis.key.orderId}")
   private String REDIS_KEY_ORDER_ID;
@@ -166,7 +166,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     // 进行库存锁定
     lockStock(cartPromotionItemList);
     // 根据商品合计、运费、活动优惠、优惠券、积分计算应付金额
-    OmsOrder order = new OmsOrder();
+    OmsOrder order = orderCacheService.popPreOrder();
     order.setDiscountAmount(new BigDecimal(0));
     order.setTotalAmount(calcTotalAmount(orderItemList));
     order.setFreightAmount(new BigDecimal(0));
@@ -217,6 +217,8 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     order.setGrowth(calcGiftGrowth(orderItemList));
     // 生成订单号
     order.setOrderSn(generateOrderSn(order));
+    // 不再是预订单
+    order.setIsPre((byte) 0);
     // 设置自动收货天数
     List<OmsOrderSetting> orderSettings =
         orderSettingMapper.selectByExample(new OmsOrderSettingExample());
@@ -225,7 +227,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     }
     // TODO: 2018/9/3 bill_*,delivery_*
     // 插入order表和order_item表
-    orderMapper.insert(order);
+    orderMapper.updateByPrimaryKey(order);
     for (OmsOrderItem orderItem : orderItemList) {
       orderItem.setOrderId(order.getId());
       orderItem.setOrderSn(order.getOrderSn());
