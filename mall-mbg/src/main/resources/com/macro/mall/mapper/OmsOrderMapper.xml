@@ -46,7 +46,7 @@
     <result column="receive_time" jdbcType="TIMESTAMP" property="receiveTime" />
     <result column="comment_time" jdbcType="TIMESTAMP" property="commentTime" />
     <result column="modify_time" jdbcType="TIMESTAMP" property="modifyTime" />
-    <result column="is_pre" jdbcType="TINYINT" property="isPre" />
+    <result column="is_pre" jdbcType="BIT" property="isPre" />
   </resultMap>
   <sql id="Example_Where_Clause">
     <where>
@@ -179,7 +179,7 @@
       #{receiverDetailAddress,jdbcType=VARCHAR}, #{note,jdbcType=VARCHAR}, #{confirmStatus,jdbcType=INTEGER}, 
       #{deleteStatus,jdbcType=INTEGER}, #{useIntegration,jdbcType=INTEGER}, #{paymentTime,jdbcType=TIMESTAMP}, 
       #{deliveryTime,jdbcType=TIMESTAMP}, #{receiveTime,jdbcType=TIMESTAMP}, #{commentTime,jdbcType=TIMESTAMP}, 
-      #{modifyTime,jdbcType=TIMESTAMP}, #{isPre,jdbcType=TINYINT})
+      #{modifyTime,jdbcType=TIMESTAMP}, #{isPre,jdbcType=BIT})
   </insert>
   <insert id="insertSelective" parameterType="com.macro.mall.model.OmsOrder">
     <selectKey keyProperty="id" order="AFTER" resultType="java.lang.Long">
@@ -451,7 +451,7 @@
         #{modifyTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isPre != null">
-        #{isPre,jdbcType=TINYINT},
+        #{isPre,jdbcType=BIT},
       </if>
     </trim>
   </insert>
@@ -597,7 +597,7 @@
         modify_time = #{row.modifyTime,jdbcType=TIMESTAMP},
       </if>
       <if test="row.isPre != null">
-        is_pre = #{row.isPre,jdbcType=TINYINT},
+        is_pre = #{row.isPre,jdbcType=BIT},
       </if>
     </set>
     <if test="example != null">
@@ -650,7 +650,7 @@
       receive_time = #{row.receiveTime,jdbcType=TIMESTAMP},
       comment_time = #{row.commentTime,jdbcType=TIMESTAMP},
       modify_time = #{row.modifyTime,jdbcType=TIMESTAMP},
-      is_pre = #{row.isPre,jdbcType=TINYINT}
+      is_pre = #{row.isPre,jdbcType=BIT}
     <if test="example != null">
       <include refid="Update_By_Example_Where_Clause" />
     </if>
@@ -788,7 +788,7 @@
         modify_time = #{modifyTime,jdbcType=TIMESTAMP},
       </if>
       <if test="isPre != null">
-        is_pre = #{isPre,jdbcType=TINYINT},
+        is_pre = #{isPre,jdbcType=BIT},
       </if>
     </set>
     where id = #{id,jdbcType=BIGINT}
@@ -838,7 +838,7 @@
       receive_time = #{receiveTime,jdbcType=TIMESTAMP},
       comment_time = #{commentTime,jdbcType=TIMESTAMP},
       modify_time = #{modifyTime,jdbcType=TIMESTAMP},
-      is_pre = #{isPre,jdbcType=TINYINT}
+      is_pre = #{isPre,jdbcType=BIT}
     where id = #{id,jdbcType=BIGINT}
   </update>
 </mapper>

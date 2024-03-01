@@ -41,6 +41,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
   @Autowired private SmsCouponHistoryMapper couponHistoryMapper;
   @Autowired private RedisService redisService;
   @Autowired private OmsPortalOrderCacheService orderCacheService;
+  @Autowired private OmsPortalOrderItemCacheService orderItemCacheService;
 
   @Value("${redis.key.orderId}")
   private String REDIS_KEY_ORDER_ID;
@@ -94,7 +95,8 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
         cartItemService.listPromotion(currentMember.getId(), orderParam.getCartIds());
     for (CartPromotionItem cartPromotionItem : cartPromotionItemList) {
       // 生成下单商品信息
-      OmsOrderItem orderItem = new OmsOrderItem();
+      OmsOrderItem orderItem = orderItemCacheService.popPreOrderItem();
+      orderItem.setIsPre(false);
       orderItem.setProductId(cartPromotionItem.getProductId());
       orderItem.setProductName(cartPromotionItem.getProductName());
       orderItem.setProductPic(cartPromotionItem.getProductPic());
@@ -218,7 +220,7 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
     // 生成订单号
     order.setOrderSn(generateOrderSn(order));
     // 不再是预订单
-    order.setIsPre((byte) 0);
+    order.setIsPre(false);
     // 设置自动收货天数
     List<OmsOrderSetting> orderSettings =
         orderSettingMapper.selectByExample(new OmsOrderSettingExample());
@@ -226,13 +228,16 @@ public class OmsPortalOrderServiceImpl implements OmsPortalOrderService {
       order.setAutoConfirmDay(orderSettings.get(0).getConfirmOvertime());
     }
     // TODO: 2018/9/3 bill_*,delivery_*
-    // 插入order表和order_item表
+    // 插入order表和order_item表 【性能优化备注】这里原先是 insert
     orderMapper.updateByPrimaryKey(order);
     for (OmsOrderItem orderItem : orderItemList) {
       orderItem.setOrderId(order.getId());
       orderItem.setOrderSn(order.getOrderSn());
     }
-    orderItemDao.insertList(orderItemList);
+    // 【性能优化备注】这里原先调用的是 PortalOrderItemDao.insertList
+    for (OmsOrderItem orderItem : orderItemList) {
+      orderItemMapper.updateByPrimaryKey(orderItem);
+    }
     // 如使用优惠券更新优惠券使用状态
     if (orderParam.getCouponId() != null) {
       updateCouponStatus(orderParam.getCouponId(), currentMember.getId(), 1);

@@ -48,6 +48,7 @@ redis:
     memberAddresses: 'ums:memberAddresses'
     orderId: 'oms:orderId'
     preOrders: 'oms:preOrders'
+    preOrderItems: 'oms:preOrderItems'
     memberCartItems: 'oms:memberCartItems'
     promotionProduct: 'pms:promotionProduct'
   expire:

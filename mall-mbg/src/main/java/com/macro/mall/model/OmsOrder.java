@@ -137,7 +137,7 @@ public class OmsOrder implements Serializable {
     private Date modifyTime;
 
     @ApiModelProperty(value = "是否为预生成订单")
-    private Byte isPre;
+    private Boolean isPre;
 
     private static final long serialVersionUID = 1L;
 
@@ -493,11 +493,11 @@ public class OmsOrder implements Serializable {
         this.modifyTime = modifyTime;
     }
 
-    public Byte getIsPre() {
+    public Boolean getIsPre() {
         return isPre;
     }
 
-    public void setIsPre(Byte isPre) {
+    public void setIsPre(Boolean isPre) {
         this.isPre = isPre;
     }
 

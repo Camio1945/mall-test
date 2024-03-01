@@ -2926,52 +2926,52 @@ public class OmsOrderExample {
             return (Criteria) this;
         }
 
-        public Criteria andIsPreEqualTo(Byte value) {
+        public Criteria andIsPreEqualTo(Boolean value) {
             addCriterion("is_pre =", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreNotEqualTo(Byte value) {
+        public Criteria andIsPreNotEqualTo(Boolean value) {
             addCriterion("is_pre <>", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreGreaterThan(Byte value) {
+        public Criteria andIsPreGreaterThan(Boolean value) {
             addCriterion("is_pre >", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreGreaterThanOrEqualTo(Byte value) {
+        public Criteria andIsPreGreaterThanOrEqualTo(Boolean value) {
             addCriterion("is_pre >=", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreLessThan(Byte value) {
+        public Criteria andIsPreLessThan(Boolean value) {
             addCriterion("is_pre <", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreLessThanOrEqualTo(Byte value) {
+        public Criteria andIsPreLessThanOrEqualTo(Boolean value) {
             addCriterion("is_pre <=", value, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreIn(List<Byte> values) {
+        public Criteria andIsPreIn(List<Boolean> values) {
             addCriterion("is_pre in", values, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreNotIn(List<Byte> values) {
+        public Criteria andIsPreNotIn(List<Boolean> values) {
             addCriterion("is_pre not in", values, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreBetween(Byte value1, Byte value2) {
+        public Criteria andIsPreBetween(Boolean value1, Boolean value2) {
             addCriterion("is_pre between", value1, value2, "isPre");
             return (Criteria) this;
         }
 
-        public Criteria andIsPreNotBetween(Byte value1, Byte value2) {
+        public Criteria andIsPreNotBetween(Boolean value1, Boolean value2) {
             addCriterion("is_pre not between", value1, value2, "isPre");
             return (Criteria) this;
         }

@@ -5,11 +5,13 @@ import com.github.pagehelper.PageHelper;
 import com.macro.mall.common.api.CommonResult;
 import com.macro.mall.mapper.*;
 import com.macro.mall.model.*;
+import com.macro.mall.portal.dao.PortalOrderItemDao;
 import com.macro.mall.portal.service.*;
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import java.math.BigDecimal;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.LongStream;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,15 +35,18 @@ public class DebugController {
   @Autowired private OmsCartItemMapper cartItemMapper;
   @Autowired private UmsMemberReceiveAddressCacheService addressCacheService;
   @Autowired private OmsOrderMapper orderMapper;
+  @Autowired private OmsOrderItemMapper orderItemMapper;
   @Autowired private OmsPortalOrderCacheService orderCacheService;
+  @Autowired private OmsPortalOrderItemCacheService orderItemCacheService;
+  @Autowired private PortalOrderItemDao orderItemDao;
+
+  private static final int TOTAL_ORDER = 10000;
 
   @ApiOperation("准备（主要是缓存数据）")
   @GetMapping(value = "/prepare")
   @ResponseBody
   public CommonResult<String> prepare() {
-    LongStream.range(0, 10001)
-        .parallel()
-        .forEach(i -> loadCache("member" + i, i + 12));
+    LongStream.range(0, TOTAL_ORDER + 1).parallel().forEach(i -> loadCache("member" + i, i + 12));
     generatePreOrder();
     return CommonResult.success("操作成功");
   }
@@ -61,28 +66,53 @@ public class DebugController {
 
   /** 生成预订单 */
   private void generatePreOrder() {
-    OmsOrderExample example = new OmsOrderExample();
-    example.setOrderByClause("id asc");
-    example.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo((byte) 1);
-    int total = 10100 - (int) orderMapper.countByExample(example);
-    for (int i = 0; i < total; i++) {
+    OmsOrderExample orderExample = new OmsOrderExample();
+    orderExample.setOrderByClause("id asc");
+    orderExample.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo(true);
+    // 如果数据库中的预订单不够，就补充
+    int totalPreOrder = TOTAL_ORDER + 100 - (int) orderMapper.countByExample(orderExample);
+    for (int i = 0; i < totalPreOrder; i++) {
       OmsOrder order = new OmsOrder();
       order.setMemberId(0L);
       order.setReceiverName("");
       order.setReceiverPhone("");
       order.setDeleteStatus(0);
-      order.setIsPre((byte) 1);
+      order.setIsPre(true);
       orderMapper.insert(order);
     }
-    List<OmsOrder> omsOrders = orderMapper.selectByExample(example);
+    // 预订单存入缓存中
+    List<OmsOrder> omsOrders = orderMapper.selectByExample(orderExample);
     orderCacheService.putPreOrderList(omsOrders);
+
+    // 预订单商品存入缓存中
+    OmsOrderItemExample orderItemExample = new OmsOrderItemExample();
+    orderItemExample.setOrderByClause("id asc");
+    orderItemExample.createCriteria().andIsPreEqualTo(true);
+    List<OmsOrderItem> omsOrderItems = orderItemMapper.selectByExample(orderItemExample);
+    // 如果数据库中的预订单商品不够，就补充
+    int totalPreOrderItem =
+        TOTAL_ORDER + 100 - (int) orderItemMapper.countByExample(orderItemExample);
+    for (int i = 0; i < totalPreOrderItem; i++) {
+      OmsOrderItem orderItem = new OmsOrderItem();
+      orderItem.setIsPre(true);
+      omsOrderItems.add(orderItem);
+      orderItemMapper.insert(orderItem);
+    }
+    orderItemCacheService.putPreOrderItemList(omsOrderItems);
   }
 
   @ApiOperation("临时测试")
   @GetMapping(value = "/temp")
   @ResponseBody
   public CommonResult<String> temp() {
-    return CommonResult.success("" + orderCacheService.popPreOrder());
+    List<OmsOrderItem> orderItems = new ArrayList<>();
+    for (int i = 0; i < 10100; i++) {
+      OmsOrderItem orderItem = new OmsOrderItem();
+      orderItem.setIsPre(true);
+      orderItems.add(orderItem);
+    }
+    orderItemDao.insertList(orderItems);
+    return CommonResult.success("");
   }
 
   @ApiOperation("恢复压测时的第一个用户的数据")
@@ -125,28 +155,25 @@ public class DebugController {
   }
 
   private void loadOnePageOfPreOrders() {
-    OmsOrderExample example = new OmsOrderExample();
-    example.setOrderByClause("id asc");
-    example.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo((byte) 1);
-    int total = 10100 - (int) orderMapper.countByExample(example);
-    for (int i = 0; i < total; i++) {
-      OmsOrder order = new OmsOrder();
-      order.setMemberId(0L);
-      order.setReceiverName("");
-      order.setReceiverPhone("");
-      order.setDeleteStatus(0);
-      order.setIsPre((byte) 1);
-      orderMapper.insert(order);
-    }
+    OmsOrderExample orderExample = new OmsOrderExample();
+    orderExample.setOrderByClause("id asc");
+    orderExample.createCriteria().andDeleteStatusEqualTo(0).andIsPreEqualTo(true);
     PageHelper.startPage(1, 10);
-    List<OmsOrder> omsOrders = orderMapper.selectByExample(example);
+    List<OmsOrder> omsOrders = orderMapper.selectByExample(orderExample);
     orderCacheService.putPreOrderList(omsOrders);
+
+    OmsOrderItemExample orderItemExample = new OmsOrderItemExample();
+    orderItemExample.setOrderByClause("id asc");
+    orderItemExample.createCriteria().andIsPreEqualTo(true);
+    PageHelper.startPage(1, 10);
+    List<OmsOrderItem> omsOrderItems = orderItemMapper.selectByExample(orderItemExample);
+    orderItemCacheService.putPreOrderItemList(omsOrderItems);
   }
 
   @ApiOperation("版本号")
   @GetMapping(value = "/version")
   @ResponseBody
   public CommonResult<String> version() {
-    return CommonResult.success("4.0");
+    return CommonResult.success("6.0");
   }
 }

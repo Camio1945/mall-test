@@ -1444,6 +1444,66 @@ public class OmsOrderItemExample {
             addCriterion("product_attr not between", value1, value2, "productAttr");
             return (Criteria) this;
         }
+
+        public Criteria andIsPreIsNull() {
+            addCriterion("is_pre is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreIsNotNull() {
+            addCriterion("is_pre is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreEqualTo(Boolean value) {
+            addCriterion("is_pre =", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreNotEqualTo(Boolean value) {
+            addCriterion("is_pre <>", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreGreaterThan(Boolean value) {
+            addCriterion("is_pre >", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreGreaterThanOrEqualTo(Boolean value) {
+            addCriterion("is_pre >=", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreLessThan(Boolean value) {
+            addCriterion("is_pre <", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreLessThanOrEqualTo(Boolean value) {
+            addCriterion("is_pre <=", value, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreIn(List<Boolean> values) {
+            addCriterion("is_pre in", values, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreNotIn(List<Boolean> values) {
+            addCriterion("is_pre not in", values, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_pre between", value1, value2, "isPre");
+            return (Criteria) this;
+        }
+
+        public Criteria andIsPreNotBetween(Boolean value1, Boolean value2) {
+            addCriterion("is_pre not between", value1, value2, "isPre");
+            return (Criteria) this;
+        }
     }
 
     public static class Criteria extends GeneratedCriteria {
